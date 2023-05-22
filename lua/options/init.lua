@@ -1,12 +1,10 @@
-vim.cmd("hi TransparentBg guifg=#0d8080 guibg=#000000")
-
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = vim.schedule_wrap(function ()
     vim.cmd("highlight ActiveWindow guibg=#011826")
     vim.cmd("highlight InactiveWindow guibg=#000000")
 
-    vim.cmd('hi WinBar guibg=#011826 guifg=#ff44e0')
-    vim.cmd('hi WinBarNC guibg=#000000 guifg=#ff44e0')
+    vim.cmd('hi WinBar guibg=#011826')
+    vim.cmd('hi WinBarNC guibg=#000000')
 
     vim.cmd("highlight NeoTreeTabActive guifg=#1affff guibg=#011826")
     vim.cmd("hi NeoTreeWinSeparator guifg=#011826 guibg=#011826")

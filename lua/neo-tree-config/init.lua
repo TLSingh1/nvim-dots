@@ -93,22 +93,22 @@ require("neo-tree").setup({
 				nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 			},
 			["<2-LeftMouse>"] = "open",
-			["<cr>"] = "open",
+			-- ["<cr>"] = "open",
 			["<esc>"] = "revert_preview",
 			["P"] = { "toggle_preview", config = { use_float = true } },
 			["l"] = "focus_preview",
-			["S"] = "open_split",
-			["s"] = "open_vsplit",
+			-- ["S"] = "open_split",
+			["v"] = "open_vsplit",
 			-- ["S"] = "split_with_window_picker",
 			-- ["s"] = "vsplit_with_window_picker",
 			["t"] = "open_tabnew",
 			-- ["<cr>"] = "open_drop",
 			-- ["t"] = "open_tab_drop",
-			["w"] = "open_with_window_picker",
+			["<cr>"] = "open_with_window_picker",
 			--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
 			["C"] = "close_node",
-			-- ['C'] = 'close_all_subnodes',
-			-- ["z"] = "close_all_nodes",
+			-- ['S'] = 'close_all_subnodes',
+			["S"] = "close_all_nodes",
 			--["Z"] = "expand_all_nodes",
 			["a"] = {
 				"add",
@@ -164,7 +164,7 @@ require("neo-tree").setup({
 				--".null-ls_*",
 			},
 		},
-		follow_current_file = false, -- This will find and focus the file in the active buffer every
+		follow_current_file = true, -- This will find and focus the file in the active buffer every
 		-- time the current file is changed while the tree is open.
 		group_empty_dirs = false, -- when true, empty folders will be grouped together
 		hijack_netrw_behavior = "open_default", -- netrw disabled, opening a directory opens neo-tree
@@ -180,7 +180,7 @@ require("neo-tree").setup({
 				["."] = "set_root",
 				["H"] = "toggle_hidden",
 				["/"] = "fuzzy_finder",
-				["D"] = "fuzzy_finder_directory",
+				-- ["/"] = "fuzzy_finder_directory",
 				["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
 				-- ["D"] = "fuzzy_sorter_directory",
 				["f"] = "filter_on_submit",

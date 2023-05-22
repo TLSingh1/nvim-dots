@@ -87,6 +87,8 @@ packer.startup({ function ()
   --     require("nvim-tree").setup {}
   --   end
   -- }
+
+  use { "s1n7ax/nvim-window-picker", tag = "v1.*" }     -- window picker
   use { "lukas-reineke/indent-blankline.nvim" }     -- better indents
   use { "norcalli/nvim-colorizer.lua" }             -- colorizer
   use { "andweeb/presence.nvim" }                   -- discord presence

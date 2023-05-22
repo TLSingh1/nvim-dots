@@ -34,6 +34,7 @@ require('heirline-config')                            -- heirline / statuslines
 require('telescope-config')                           -- telescope
 require('todo-comments-config')                       -- todo comments
 require('trouble-config')                             -- Multipurpose Pop up
+require('window-picker-config')                       -- Window Picker
 require('nvim-surround-config')                       -- surround pairs
 require('nvim-autopairs-config')                      -- auto pairs
 require('nvim-ts-autotag-config')                     -- auto tags

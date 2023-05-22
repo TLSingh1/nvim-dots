@@ -17,11 +17,13 @@ local GitStatus = require("heirline-config.git-status")
 local Align = { provider = "%=" }
 local Space = { provider = " " }
 
--- ViMode = utils.surround({ "", "" }, "#000000", { ViMode })
-
 local StatusLine = {
 	{
-		{ { ViMode }, { Diagnostics }, { GitStatus } },
+		{
+			{ ViMode },
+			{ Diagnostics },
+			{ GitStatus },
+		},
 		{ Align, hl = { bg = "#000000" } },
 		{ { LspActive }, { Location.Ruler, Location.ScrollBar, Space, hl = { fg = "#1affff", bg = "#000000" } } },
 	},
@@ -29,27 +31,25 @@ local StatusLine = {
 
 local WinBar = {
 	{
-    {
-      condition = function ()
-        return not conditions.is_active()
-      end,
-      utils.surround({ " ", " " }, "#000000", { hl = { fg = "#1AF0F1", force = true }, FileName }),
-    },
-    {
-      condition = function ()
-        return conditions.is_active()
-      end,
-      utils.surround({ "", "" }, "#00363C", { hl = { fg = "#1AF0F1", force = true }, FileName }),
-    }
+		{
+			condition = function()
+				return not conditions.is_active()
+			end,
+			utils.surround({ " ", " " }, "#000000", { hl = { fg = "#1AF0F1", force = true }, FileName }),
+		},
+		{
+			condition = function()
+				return conditions.is_active()
+			end,
+			utils.surround({ "", "" }, "#00363C", { hl = { fg = "#1AF0F1", force = true }, FileName }),
+			hl = { bg = "#011826" },
+		},
 	},
 }
-
--- local TabLine = require("heirline-config.tabline")
 
 heirline.setup({
 	statusline = StatusLine,
 	winbar = WinBar,
-  -- tabline = TabLine,
 	opts = {
 		disable_winbar_cb = function(args)
 			return conditions.buffer_matches({
