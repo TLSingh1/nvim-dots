@@ -26,10 +26,8 @@ require('gitsigns-config')                            -- Git Integration
 -- UI / UX
 require('colorful-winsep-config')                     -- Colorful Window Seperator
 require('hop-config')                                 -- Hop Cursor Navigation
--- require('lightspeed-config')                          -- Lightspeed navigation
 require('bufferline-config')                          -- Tabline
 require('neo-tree-config')
--- require('nvim-tree-config')                           -- File Tree
 require('heirline-config')                            -- heirline / statuslines
 require('telescope-config')                           -- telescope
 require('todo-comments-config')                       -- todo comments
