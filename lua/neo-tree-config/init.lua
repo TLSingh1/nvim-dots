@@ -109,7 +109,7 @@ require("neo-tree").setup({
 			["S"] = "close_node",
 			-- ['S'] = 'close_all_subnodes',
 			["C"] = "close_all_nodes",
-			--["Z"] = "expand_all_nodes",
+			["D"] = "expand_all_nodes",
 			["a"] = {
 				"add",
 				-- this command supports BASH style brace expansion ("x{a,b,c}" -> xa,xb,xc). see `:h neo-tree-file-actions` for details
@@ -183,7 +183,9 @@ require("neo-tree").setup({
 				-- ["/"] = "fuzzy_finder_directory",
 				["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
 				-- ["D"] = "fuzzy_sorter_directory",
-				["f"] = "filter_on_submit",
+				["f"] = function (state)
+          vim.api.nvim_command("HopLine")
+				end,
 				["<c-x>"] = "clear_filter",
 				["[g"] = "prev_git_modified",
 				["]g"] = "next_git_modified",
