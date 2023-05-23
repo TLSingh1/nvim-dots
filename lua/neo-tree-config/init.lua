@@ -93,10 +93,10 @@ require("neo-tree").setup({
 				nowait = false, -- disable `nowait` if you have existing combos starting with this char that you want to use
 			},
 			["<2-LeftMouse>"] = "open",
-			-- ["<cr>"] = "open",
+			["l"] = "open",
 			["<esc>"] = "revert_preview",
 			["P"] = { "toggle_preview", config = { use_float = true } },
-			["l"] = "focus_preview",
+			-- ["l"] = "focus_preview",
 			-- ["S"] = "open_split",
 			["v"] = "open_vsplit",
 			-- ["S"] = "split_with_window_picker",
@@ -106,7 +106,7 @@ require("neo-tree").setup({
 			-- ["t"] = "open_tab_drop",
 			["<cr>"] = "open_with_window_picker",
 			--["P"] = "toggle_preview", -- enter preview mode, which shows the current node without focusing
-			["S"] = "close_node",
+			["h"] = "close_node",
 			-- ['S'] = 'close_all_subnodes',
 			["C"] = "close_all_nodes",
 			["D"] = "expand_all_nodes",
@@ -184,7 +184,7 @@ require("neo-tree").setup({
 				["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
 				-- ["D"] = "fuzzy_sorter_directory",
 				["f"] = function (state)
-          vim.api.nvim_command("HopLine")
+          vim.api.nvim_command("HopWord")
 				end,
 				["<c-x>"] = "clear_filter",
 				["[g"] = "prev_git_modified",

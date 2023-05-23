@@ -91,6 +91,9 @@ keymap("n", "<S-h>", ":bprevious<CR>", opts)
 -- keymap("n", "z", ":NvimTreeToggle<CR>", opts)
 keymap("n", "z", ":NeoTreeFocusToggle<CR>", opts)
 
+-- Symbols Tree
+keymap("n", ";", ":SymbolsOutline <CR>", opts)
+
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
@@ -126,7 +129,7 @@ keymap("n", "<leader>t", "<cmd>Telescope live_grep<CR>", opts)
 keymap("n", "<leader>w", ":w <cr>", opts)
 keymap("n", "<leader>r", ":TodoTelescope  <cr>", opts)
 keymap("n", "<leader>v", ":TodoTrouble <cr>", opts)
-keymap("n", ";", ":Telescope diagnostics<CR>", opts)
+-- keymap("n", ";", ":Telescope diagnostics<CR>", opts)
 keymap("n", "<C-/>", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- keymap("n", ";", ":Telescope current_buffer_fuzzy_find<CR>", opts)

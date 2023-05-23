@@ -25,6 +25,7 @@ require('gitsigns-config')                            -- Git Integration
 
 -- UI / UX
 require('colorful-winsep-config')                     -- Colorful Window Seperator
+require('symbols-outline-config')                     -- Symbols Outline
 require('hop-config')                                 -- Hop Cursor Navigation
 require('bufferline-config')                          -- Tabline
 require('neo-tree-config')

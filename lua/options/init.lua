@@ -1,15 +1,22 @@
 vim.api.nvim_create_autocmd('ColorScheme', {
   callback = vim.schedule_wrap(function ()
+    -- Active/Inactive windows
     vim.cmd("highlight ActiveWindow guibg=#011826")
     vim.cmd("highlight InactiveWindow guibg=#000000")
 
+    -- Active/Inactive winbar
     vim.cmd('hi WinBar guibg=#011826')
     vim.cmd('hi WinBarNC guibg=#000000')
 
+    -- Neo Tree
     vim.cmd("highlight NeoTreeTabActive guifg=#1affff guibg=#011826")
     vim.cmd("hi NeoTreeWinSeparator guifg=#011826 guibg=#011826")
     vim.cmd("hi NeoTreeGitStaged guifg=#1aff94")
 
+    -- Symbols Outline
+    vim.cmd("hi FocusedSymbol guifg=#1affff guibg=#00363C")
+
+    -- Buffer line ? 
     vim.cmd('highlight BufferTabpageFill guibg=#000000')
     vim.cmd('highlight BufferCurrent guifg=#1AFFFF guibg=#00363C')
     vim.cmd('highlight BufferVisible  guibg=#011826')
