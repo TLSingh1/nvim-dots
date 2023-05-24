@@ -45,6 +45,7 @@ packer.startup({ function ()
   -- UI / UX
   use { "nvim-zh/colorful-winsep.nvim" }            -- Colorful Window Separators
   use { "simrat39/symbols-outline.nvim" }           -- Symbols Outline
+  use { "gelguy/wilder.nvim" }                      -- Command Line History
   use {                                             -- hop cursor navigation
     'phaazon/hop.nvim',
     branch = 'v2'

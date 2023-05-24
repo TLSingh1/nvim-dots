@@ -288,6 +288,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/tai/.local/share/nvim/site/pack/packer/start/trouble.nvim",
     url = "https://github.com/folke/trouble.nvim"
+  },
+  ["wilder.nvim"] = {
+    loaded = true,
+    path = "/home/tai/.local/share/nvim/site/pack/packer/start/wilder.nvim",
+    url = "https://github.com/gelguy/wilder.nvim"
   }
 }
 

@@ -4,7 +4,7 @@ require("symbols-outline").setup({
   width = 40,
   auto_close = true,
   show_symbol_details = false,
-  autofold_depth = 1,
+  autofold_depth = 2,
   keymaps = {
     hover_symbol = "K",
     toggle_preview = "<F24>",

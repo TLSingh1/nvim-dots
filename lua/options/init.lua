@@ -1,32 +1,98 @@
-vim.api.nvim_create_autocmd('ColorScheme', {
-  callback = vim.schedule_wrap(function ()
-    -- Active/Inactive windows
-    vim.cmd("highlight ActiveWindow guibg=#011826")
-    vim.cmd("highlight InactiveWindow guibg=#000000")
+local api = vim.api
 
-    -- Active/Inactive winbar
-    vim.cmd('hi WinBar guibg=#011826')
-    vim.cmd('hi WinBarNC guibg=#000000')
+api.nvim_create_autocmd("ColorScheme", {
+	callback = vim.schedule_wrap(function()
+		-- Active/Inactive windows
+		vim.cmd("highlight ActiveWindow guibg=#011826")
+		vim.cmd("highlight InactiveWindow guibg=#000000")
 
-    -- Neo Tree
-    vim.cmd("highlight NeoTreeTabActive guifg=#1affff guibg=#011826")
-    vim.cmd("hi NeoTreeWinSeparator guifg=#011826 guibg=#011826")
-    vim.cmd("hi NeoTreeGitStaged guifg=#1aff94")
+		-- Active/Inactive winbar
+		vim.cmd("hi WinBar guibg=#011826")
+		vim.cmd("hi WinBarNC guibg=#000000")
 
-    -- Symbols Outline
-    vim.cmd("hi FocusedSymbol guifg=#1affff guibg=#00363C")
+		-- Neo Tree
+		vim.cmd("highlight NeoTreeTabActive guifg=#1affff guibg=#011826")
+		vim.cmd("hi NeoTreeWinSeparator guifg=#011826 guibg=#011826")
+		vim.cmd("hi NeoTreeGitStaged guifg=#1aff94")
 
-    -- Buffer line ? 
-    vim.cmd('highlight BufferTabpageFill guibg=#000000')
-    vim.cmd('highlight BufferCurrent guifg=#1AFFFF guibg=#00363C')
-    vim.cmd('highlight BufferVisible  guibg=#011826')
-    vim.cmd('highlight BufferInactive guibg=#011826')
-    vim.cmd('highlight BufferCurrentSign guibg=#000000')
-    vim.cmd('highlight BufferVisibleSign guibg=#000000')
-    vim.cmd('highlight BufferInactiveSign guibg=#000000')
-  end),
-  -- group = vim.api.nvim_create_augroup('foo', {})
+		-- Symbols Outline
+		vim.cmd("hi FocusedSymbol guifg=#1affff guibg=#00363C")
+
+		-- SpellBad
+		vim.cmd("hi SpellBad gui=underline guisp=#FFC777")
+
+		-- Buffer line ?
+		vim.cmd("highlight BufferTabpageFill guibg=#000000")
+		vim.cmd("highlight BufferCurrent guifg=#1AFFFF guibg=#00363C")
+		vim.cmd("highlight BufferVisible  guibg=#011826")
+		vim.cmd("highlight BufferInactive guibg=#011826")
+		vim.cmd("highlight BufferCurrentSign guibg=#000000")
+		vim.cmd("highlight BufferVisibleSign guibg=#000000")
+		vim.cmd("highlight BufferInactiveSign guibg=#000000")
+
+		-- Wilder Command Line
+		vim.cmd("hi WilderPrompt guifg=#FFFFFF")
+		vim.cmd("hi WilderBorder guifg=#1affff")
+		vim.cmd("hi WilderDefault guifg=#80A0FF")
+		vim.cmd("hi WilderSelected guifg=#1affff guibg=#244C58")
+
+		-- General UI
+		vim.cmd("hi EndOfBuffer guifg=#011826")
+		vim.cmd("hi MsgSeparator guibg=#000000")
+		vim.cmd("hi Pmenu guibg=#000000")
+		vim.cmd("hi PmenuSel guifg=#1affff guibg=#244C58")
+		vim.cmd("hi PmenuSbar guibg=#000000")
+		vim.cmd("hi PmenuThumb guibg=#174B6B")
+
+	end),
+	group = vim.api.nvim_create_augroup('foo', {})
 })
+
+-- Define the autocommands
+-- ocal autocmds = {
+--  -- Autocommand for entering a window
+--  {
+--    event = "WinEnter",
+--    pattern = "*",
+--    action = function()
+--      api.nvim_win_set_option(0, "cursorline", true)
+--    end,
+--  },
+--  -- Autocommand for exiting a window
+--  {
+--    event = "WinLeave",
+--    pattern = "*",
+--    action = function()
+--      api.nvim_win_set_option(0, "cursorline", false)
+--    end,
+--  },
+--  -- Autocommand for entering a buffer
+--  {
+--    event = "BufEnter",
+--    pattern = "*",
+--    action = function()
+--      api.nvim_buf_set_option(0, "cursorline", true)
+--    end,
+--  },
+--  -- Autocommand for exiting a buffer
+--  {
+--    event = "BufLeave",
+--    pattern = "*",
+--    action = function()
+--      api.nvim_buf_set_option(0, "cursorline", false)
+--    end,
+--  },
+-- 
+
+-- Wrap the autocommand actions in a callback using vim.schedule_wrap
+-- for _, autocmd in ipairs(autocmds) do
+--  autocmd.action = vim.schedule_wrap(autocmd.action)
+-- end
+
+-- Create the autocommands using vim.api.nvim_create_autocmd
+-- for _, autocmd in ipairs(autocmds) do
+--  api.nvim_create_autocmd(autocmd)
+-- end
 
 vim.cmd([[
   augroup GoIndent
@@ -34,6 +100,15 @@ vim.cmd([[
     autocmd FileType go setlocal shiftwidth=4 tabstop=4
   augroup END
 ]])
+
+vim.cmd([[
+	augroup FileTypeSpell
+		autocmd!
+		autocmd FileType Outline setlocal nospell
+	augroup END
+]])
+
+-- TODO: Figure out how to not apply this during telescope find file
 
 local options = {
 	backup = false, -- creates a backup file
@@ -70,20 +145,12 @@ local options = {
 	scrolloff = 8, -- is one of my fav
 	sidescrolloff = 8,
 	guifont = "monospace:h17", -- the font used in graphical neovim applications
-
-
-
-  ------------------------------------------------------------------
+	spell = true,
+	spellsuggest = "10",
 	laststatus = 3, -- COME BACK TO THIS FOR ALPHA
-  ------------------------------------------------------------------
-
-
-
 	breakindent = true,
 	breakindentopt = "shift:2,min:40,sbr",
-	-- winhighlight = "Normal:TransparentBg,FloatBorder:TransparentBg,Search:TransparentBg",
 	winhighlight = "Normal:ActiveWindow,NormalNC:InactiveWindow,FloatBorder:TransparentBg",
-	-- winbar = "%f",
 }
 
 vim.opt.shortmess:append("c")

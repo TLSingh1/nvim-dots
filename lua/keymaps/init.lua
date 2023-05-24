@@ -6,8 +6,6 @@ vim.api.nvim_exec([[
   autocmd FileType man nnoremap <buffer> gd <C-]>
 ]], false)
 
-
-
 -- Shorten function name
 local keymap = vim.api.nvim_set_keymap
 
@@ -97,6 +95,7 @@ keymap("n", ";", ":SymbolsOutline <CR>", opts)
 -- Insert --
 -- Press jk fast to enter
 keymap("i", "jk", "<ESC>", opts)
+keymap("n", "<leader>w", ":w <cr>", opts)
 
 -- Visual --
 -- Stay in indent mode
@@ -125,12 +124,25 @@ keymap("t", "<C-l>", "<C-\\><C-N><C-w>l", term_opts)
 
 -- Telescope --
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown({ previewer = false }))<CR>", opts)
-keymap("n", "<leader>t", "<cmd>Telescope live_grep<CR>", opts)
-keymap("n", "<leader>w", ":w <cr>", opts)
-keymap("n", "<leader>r", ":TodoTelescope  <cr>", opts)
-keymap("n", "<leader>v", ":TodoTrouble <cr>", opts)
+keymap("n", "<leader>y", "<cmd>Telescope live_grep<CR>", opts)
+keymap("n", "<leader>u", ":Telescope current_buffer_fuzzy_find <CR>", opts)
+keymap("n", "<leader>i", ":Telescope diagnostics <CR>", opts)
+keymap("n", "<leader>o", ":TodoTelescope  <cr>", opts)
+-- keymap("n", "<leader>v", ":Telescope spell_check <CR>", opts)
+
+-- Dictionary
+keymap("n", "<leader>z", "zg", opts);
+keymap("n", "<leader>x", "zw", opts)
+keymap("n", "<leader>p", "z=", opts);
+
+
+-- keymap.set("n", "<leader>v", function()
+--
+-- end, { desc = "Spelling Suggestions" })
+
+
+-- keymap("n", "<leader>v", ":TodoTrouble <cr>", opts)
 -- keymap("n", ";", ":Telescope diagnostics<CR>", opts)
-keymap("n", "<C-/>", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 
 -- keymap("n", ";", ":Telescope current_buffer_fuzzy_find<CR>", opts)
 

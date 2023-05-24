@@ -2,13 +2,13 @@ local actions = require "telescope.actions"
 
 require('telescope').setup {
   defaults = {
-
     prompt_prefix = " ",
     selection_caret = " ",
     path_display = { "smart" },
 
     mappings = {
       i = {
+        -- ["<esc>"] = actions.close,
         ["<C-n>"] = actions.cycle_history_next,
         ["<C-p>"] = actions.cycle_history_prev,
 
@@ -84,7 +84,7 @@ require('telescope').setup {
   },
   extensions = {
     media_files = {
-      filetypes = {"png", "webp", "jgp", "jpeg"},
+      filetypes = { "png", "webp", "jgp", "jpeg" },
     }
     -- Your extension configuration goes here:
     -- extension_name = {
@@ -93,4 +93,3 @@ require('telescope').setup {
     -- please take a look at the readme of the extension you want to configure
   },
 }
-
